@@ -176,19 +176,19 @@ a:hover {
 }
 
 .theme-toggle__icon--moon {
-  display: none;
-}
-
-.theme-toggle__icon--sun {
   display: block;
 }
 
-/* Nachtmodus: Sonne aus, Mond an */
-html.theme-dark .theme-toggle__icon--sun {
+.theme-toggle__icon--sun {
   display: none;
 }
 
+/* Nachtmodus: Mond aus, Sonne an (Klick wechselt zu Tag) */
 html.theme-dark .theme-toggle__icon--moon {
+  display: none;
+}
+
+html.theme-dark .theme-toggle__icon--sun {
   display: block;
 }
 
@@ -432,6 +432,16 @@ html.theme-dark .theme-toggle__icon--moon {
 @media (max-width: 47.99rem) {
   .cards-banner {
     grid-template-columns: 1fr;
+  }
+
+  /* Cards und Formular auf Handy gleich breit wie Inhaltsbereich */
+  .card-parent {
+    max-width: 100%;
+  }
+
+  .contact-form-container {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
