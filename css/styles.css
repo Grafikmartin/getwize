@@ -18,6 +18,8 @@
   --color-accent: #c02326;
   --color-text: #000000;
   --color-text-muted: #333333;
+  /* 20 % Primärfarbe für Card-Banner (Karten über Contact) */
+  --color-primary-20: rgba(123, 157, 167, 0.2);
   /* Weiße Fläche (Card-Hintergrund/Glas): RGB für rgba()-Nutzung – bei Theme-Änderung anpassen */
   --color-card-surface: 255, 255, 255;
   --font-sans: 'Roboto', system-ui, sans-serif;
@@ -36,6 +38,7 @@ html.variant-2 {
   --color-background-alt: #d0d0d0;
   --color-neutral: #ffffff;
   --color-accent: #e5bd47;
+  --color-primary-20: rgba(49, 103, 102, 0.2);
 }
 
 /* Variante 2: Card-Farben anpassen */
@@ -411,6 +414,96 @@ html.theme-dark .theme-toggle__icon--moon {
   background-color: var(--color-accent);
 }
 
+/* ----- Cards mit Kreise-Banner (über Contact): 2 Karten, obere Hälfte = Kreise wie Hero ----- */
+.cards-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 47.99rem) {
+  .cards-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-banner {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary-20);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--color-primary);
+}
+
+.card-banner__image {
+  flex: 0 0 50%;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-background);
+  border: 1px solid var(--color-primary);
+  margin: 1.5rem 1.25rem 0 1.25rem;
+  width: calc(100% - 2.5rem);
+  align-self: center;
+  box-sizing: border-box;
+}
+
+.card-banner__image.banner-circles .hero-banner__circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-banner__content {
+  flex: 1;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-banner__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.card-banner__text {
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.card-banner__content .view-more {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-banner__content .view-more-button {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.card-banner__content .view-more__svg {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3px;
+  max-height: 15px;
+  margin-left: 4px;
+}
+
 /* ----- Hero-Logo (groß, mittig unter dem Hero-Bild) ----- */
 .hero-logo {
   max-width: var(--container-max);
@@ -432,7 +525,7 @@ html.theme-dark .theme-toggle__icon--moon {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-neutral);
+  color: var(--color-text);
 }
 
 /* ----- Main content ----- */
@@ -452,7 +545,7 @@ main {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-neutral);
+  color: var(--color-text);
 }
 
 .hero-subtitle {
@@ -755,7 +848,8 @@ main {
   max-width: 32rem;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  background: var(--color-background-alt);
+  background: var(--color-primary-20);
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius);
 }
 
@@ -928,8 +1022,6 @@ html.theme-dark .contact-form-container .contact-form__hint {
 .footer-logo {
   width: 100px;
   height: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
 }
 
 .footer-tagline {

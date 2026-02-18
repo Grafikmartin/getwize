@@ -62,30 +62,38 @@ function closeMenu() {
   hamburger?.setAttribute('aria-expanded', 'false');
 }
 
-/* ----- Hero-Banner: mind. 100 Kreise, Billard-Bewegung, 40% Primär, 35% Sekundär, 20% Neutral, 5% Akzent ----- */
+/* ----- Banner-Kreise: Hero + Card-Banner (Billard-Bewegung, 40% Primär, 35% Sekundär, 20% Neutral, 5% Akzent) ----- */
 const HERO_CIRCLES = 120;
-const COLOR_COUNTS = { primary: 48, secondary: 42, neutral: 24, accent: 6 }; // 40%, 35%, 20%, 5%
+const CARD_BANNER_CIRCLES = 60;
+const COLOR_COUNTS = { primary: 48, secondary: 42, neutral: 24, accent: 6 };
 
 function randomBetween(min, max) {
   return min + Math.random() * (max - min);
 }
 
-function initHeroBanner() {
-  const banner = document.querySelector('.hero-banner');
-  if (!banner) return;
-
-  const circles = [];
-  const colorQueue = [];
-  Object.keys(COLOR_COUNTS).forEach((kind) => {
-    for (let i = 0; i < COLOR_COUNTS[kind]; i++) colorQueue.push(kind);
+function createColorQueue(total, counts) {
+  const queue = [];
+  const keys = Object.keys(counts);
+  let n = 0;
+  keys.forEach((k) => { n += counts[k]; });
+  const scale = total / Math.max(1, n);
+  keys.forEach((kind) => {
+    const num = Math.round((counts[kind] || 0) * scale);
+    for (let i = 0; i < num; i++) queue.push(kind);
   });
-  for (let i = colorQueue.length - 1; i > 0; i--) {
+  while (queue.length < total) queue.push(keys[0]);
+  for (let i = queue.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [colorQueue[i], colorQueue[j]] = [colorQueue[j], colorQueue[i]];
+    [queue[i], queue[j]] = [queue[j], queue[i]];
   }
+  return queue;
+}
 
-  for (let i = 0; i < HERO_CIRCLES; i++) {
-    const size = Math.round(randomBetween(14, 72));
+function initBannerCircles(banner, numCircles) {
+  const colorQueue = createColorQueue(numCircles, COLOR_COUNTS);
+  const circles = [];
+  for (let i = 0; i < numCircles; i++) {
+    const size = Math.round(randomBetween(10, 52));
     const el = document.createElement('div');
     el.className = 'hero-banner__circle hero-banner__circle--' + colorQueue[i];
     el.setAttribute('aria-hidden', 'true');
@@ -101,15 +109,13 @@ function initHeroBanner() {
       vy: randomBetween(0.15, 0.55) * (Math.random() < 0.5 ? 1 : -1),
     });
   }
-
+  let started = false;
   function placeAndStart(w, h) {
     circles.forEach((c) => {
       c.x = randomBetween(0, Math.max(0, w - c.size));
       c.y = randomBetween(0, Math.max(0, h - c.size));
     });
   }
-
-  let started = false;
   function tick() {
     const w = banner.offsetWidth;
     const h = banner.offsetHeight;
@@ -120,27 +126,23 @@ function initHeroBanner() {
     circles.forEach((c) => {
       c.x += c.vx;
       c.y += c.vy;
-      if (c.x <= 0) {
-        c.x = 0;
-        c.vx = Math.abs(c.vx);
-      }
-      if (c.x >= w - c.size) {
-        c.x = w - c.size;
-        c.vx = -Math.abs(c.vx);
-      }
-      if (c.y <= 0) {
-        c.y = 0;
-        c.vy = Math.abs(c.vy);
-      }
-      if (c.y >= h - c.size) {
-        c.y = h - c.size;
-        c.vy = -Math.abs(c.vy);
-      }
+      if (c.x <= 0) { c.x = 0; c.vx = Math.abs(c.vx); }
+      if (c.x >= w - c.size) { c.x = w - c.size; c.vx = -Math.abs(c.vx); }
+      if (c.y <= 0) { c.y = 0; c.vy = Math.abs(c.vy); }
+      if (c.y >= h - c.size) { c.y = h - c.size; c.vy = -Math.abs(c.vy); }
       c.el.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
     });
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+}
+
+function initHeroBanner() {
+  const hero = document.querySelector('.hero-banner');
+  if (hero) initBannerCircles(hero, HERO_CIRCLES);
+  document.querySelectorAll('.banner-circles').forEach((el) => {
+    initBannerCircles(el, CARD_BANNER_CIRCLES);
+  });
 }
 
 const LOGO_V1_MAIN = 'logo/Farbvarianten/GW1.svg';
