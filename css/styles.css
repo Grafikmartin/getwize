@@ -106,6 +106,7 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-background);
+  overflow-x: hidden;
 }
 
 img {
@@ -152,6 +153,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.5rem;
@@ -211,6 +214,8 @@ html.theme-dark .theme-toggle__icon--moon {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.5rem;
@@ -306,6 +311,8 @@ html.theme-dark .theme-toggle__icon--moon {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   width: 2.25rem;
   height: 2.25rem;
   padding: 0;
@@ -1059,4 +1066,44 @@ html.theme-dark .contact-form-container .contact-form__hint {
   margin: 0;
   font-size: 0.75rem;
   color: #808080;
+}
+
+/* ----- Responsive: Handy / kleine Viewports – Lesbarkeit & Bedienung ----- */
+@media (max-width: 30rem) {
+  .header-inner {
+    padding: 0 1rem;
+  }
+
+  .hero-logo {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  main {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .contact-form-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .card-banner__content {
+    padding: 1.25rem 1rem;
+  }
+
+  .card-banner__image {
+    margin: 1.25rem 1rem 0 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  .footer-legal,
+  .footer-copy {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Formular: mind. 16px verhindert automatisches Zoomen auf iOS beim Fokus */
+.contact-form__field input[type="text"],
+.contact-form__field input[type="email"],
+.contact-form__field textarea {
+  font-size: max(1rem, 16px);
 }
