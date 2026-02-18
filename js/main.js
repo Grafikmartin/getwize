@@ -1,18 +1,64 @@
 /**
- * Getwize – Hamburger menu and hero banner (Billard-Kreise)
+ * Getwize – Hamburger menu, Tag/Nacht, hero banner (Billard-Kreise)
  */
 const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav-menu');
+const menuOverlay = document.getElementById('menu-overlay');
+const menuOverlayBackdrop = document.getElementById('menu-overlay-backdrop');
+const menuOverlayClose = document.getElementById('menu-overlay-close');
 const header = document.querySelector('.header');
+const themeToggle = document.getElementById('theme-toggle');
+
+const THEME_KEY = 'getwize-theme';
+const THEME_DARK = 'dark';
+const THEME_LIGHT = 'light';
+
+function getStoredTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) || THEME_LIGHT;
+  } catch (_e) {
+    return THEME_LIGHT;
+  }
+}
+
+function setTheme(dark) {
+  const html = document.documentElement;
+  if (dark) {
+    html.classList.add('theme-dark');
+    themeToggle?.setAttribute('aria-label', 'Zu Tagmodus wechseln');
+    themeToggle?.setAttribute('title', 'Tagmodus');
+  } else {
+    html.classList.remove('theme-dark');
+    themeToggle?.setAttribute('aria-label', 'Zu Nachtmodus wechseln');
+    themeToggle?.setAttribute('title', 'Nachtmodus');
+  }
+  try {
+    localStorage.setItem(THEME_KEY, dark ? THEME_DARK : THEME_LIGHT);
+  } catch (_e) {}
+}
+
+function toggleTheme() {
+  const nextDark = !document.documentElement.classList.contains('theme-dark');
+  setTheme(nextDark);
+}
+
+function initTheme() {
+  const stored = getStoredTheme();
+  setTheme(stored === THEME_DARK);
+  themeToggle?.addEventListener('click', toggleTheme);
+}
 
 function toggleMenu() {
-  if (!header) return;
+  if (!header || !menuOverlay) return;
   const isOpen = header.classList.toggle('is-open');
+  menuOverlay.classList.toggle('is-open', isOpen);
+  menuOverlay.setAttribute('aria-hidden', String(!isOpen));
   hamburger?.setAttribute('aria-expanded', String(isOpen));
 }
 
 function closeMenu() {
   header?.classList.remove('is-open');
+  menuOverlay?.classList.remove('is-open');
+  menuOverlay?.setAttribute('aria-hidden', 'true');
   hamburger?.setAttribute('aria-expanded', 'false');
 }
 
@@ -97,13 +143,38 @@ function initHeroBanner() {
   requestAnimationFrame(tick);
 }
 
+const LOGO_V1_MAIN = 'logo/Farbvarianten/GW1.svg';
+const LOGO_V1_CARD = 'logo/Farbvarianten/GW-S1.svg';
+const LOGO_V2_MAIN = 'logo/Farbvarianten/GW2.svg';
+const LOGO_V2_CARD = 'logo/Farbvarianten/GW-S2.svg';
+
+function setVariant(variant) {
+  const isV2 = variant === 2;
+  const html = document.documentElement;
+  if (isV2) {
+    html.classList.add('variant-2');
+  } else {
+    html.classList.remove('variant-2');
+  }
+  const mainSrc = isV2 ? LOGO_V2_MAIN : LOGO_V1_MAIN;
+  const cardSrc = isV2 ? LOGO_V2_CARD : LOGO_V1_CARD;
+  document.querySelectorAll('.js-logo-main').forEach((img) => { img.src = mainSrc; });
+  document.querySelectorAll('.js-logo-card').forEach((img) => { img.src = cardSrc; });
+}
+
 function init() {
-  if (hamburger && nav) {
-    hamburger.addEventListener('click', toggleMenu);
-    nav.addEventListener('click', (e) => {
-      const target = e.target;
-      if (target.matches('a[href^="#"]')) closeMenu();
+  initTheme();
+  document.querySelectorAll('.nav-variant-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const v = btn.getAttribute('data-variant');
+      if (v === '1' || v === '2') setVariant(Number(v));
+      closeMenu();
     });
+  });
+  if (hamburger && menuOverlay) {
+    hamburger.addEventListener('click', toggleMenu);
+    menuOverlayBackdrop?.addEventListener('click', closeMenu);
+    menuOverlayClose?.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
     });

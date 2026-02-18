@@ -14,23 +14,46 @@
   <header class="header">
     <div class="header-inner">
       <a href="/" class="logo-link" aria-label="Getwize Home">
-        <img src="logo/Normal_positiv/Logo_GETWIZE.svg" alt="Getwize" class="logo-img">
+        <img src="logo/Farbvarianten/GW1.svg" alt="Getwize" class="logo-img js-logo-main">
       </a>
-      <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Zu Nachtmodus wechseln" title="Nachtmodus">
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+        <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="menu-overlay" aria-label="Menü öffnen">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
+      </div>
     </div>
-    <nav class="nav" id="nav-menu" aria-label="Main navigation">
-      <ul class="nav-list">
-        <!-- Varianten erscheinen beim Öffnen des Menüs (Platzhalter für spätere Farbvarianten) -->
-      </ul>
-    </nav>
   </header>
+
+  <!-- Menüfenster (Overlay) – erscheint bei Klick auf Hamburger -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <div class="menu-overlay__backdrop" id="menu-overlay-backdrop" aria-hidden="true"></div>
+    <div class="menu-overlay__panel">
+      <h2 class="menu-overlay__title">Variante wählen</h2>
+      <ul class="menu-overlay__list">
+        <li><button type="button" class="nav-variant-btn" data-variant="1">Variante 1</button></li>
+        <li><button type="button" class="nav-variant-btn" data-variant="2">Variante 2</button></li>
+      </ul>
+      <button type="button" class="menu-overlay__close" id="menu-overlay-close" aria-label="Menü schließen">×</button>
+    </div>
+  </div>
 
   <!-- From Uiverse.io by SelfMadeSystem, adapted with Getwize colors -->
   <div class="hero-banner" aria-hidden="true"></div>
+
+  <section class="hero-logo">
+    <img src="logo/Farbvarianten/GW1.svg" alt="Getwize" class="hero-logo__img js-logo-main">
+   
+  </section>
 
   <main>
     <section class="hero">
@@ -52,7 +75,7 @@
             <span class="circle circle3"></span>
             <span class="circle circle4"></span>
             <span class="circle circle5">
-              <img src="logo/Normal_positiv/signet_Favicon_GETWIZE.svg" alt="" class="card-ui__signet">
+              <img src="logo/Farbvarianten/GW-S1.svg" alt="" class="card-ui__signet js-logo-card">
             </span>
           </div>
           <div class="card-ui__glass"></div>
@@ -75,7 +98,7 @@
             <span class="circle circle3"></span>
             <span class="circle circle4"></span>
             <span class="circle circle5">
-              <img src="logo/Normal_positiv/signet_Favicon_GETWIZE.svg" alt="" class="card-ui__signet">
+              <img src="logo/Farbvarianten/GW-S1.svg" alt="" class="card-ui__signet js-logo-card">
             </span>
           </div>
           <div class="card-ui__glass"></div>
@@ -98,7 +121,7 @@
             <span class="circle circle3"></span>
             <span class="circle circle4"></span>
             <span class="circle circle5">
-              <img src="logo/Normal_positiv/signet_Favicon_GETWIZE.svg" alt="" class="card-ui__signet">
+              <img src="logo/Farbvarianten/GW-S1.svg" alt="" class="card-ui__signet js-logo-card">
             </span>
           </div>
           <div class="card-ui__glass"></div>
@@ -116,6 +139,11 @@
       </article>
     </section>
 
+    <section class="core-benefits">
+      <h2 class="core-benefits__title">Core Benefits.</h2>
+      <p class="core-benefits__text">Currently, the development of safety-critical products—especially software—is complex and requires significant effort. This results in lengthy development, approval, and certification processes. The market is effectively closed to new entrants, as they lack the extensive expert knowledge required and have no practical way to build it up.</p>
+    </section>
+
     <section class="contact" id="contact">
       <h2 class="contact__title">Contact</h2>
       <div class="contact__info">
@@ -123,6 +151,7 @@
         <p class="contact__line">E-Mail: <a href="mailto:info@getwize.ai">info@getwize.ai</a></p>
         <p class="contact__line">Address: 10115 Berlin, Germany</p>
       </div>
+      <div class="contact-form-container">
       <form class="contact-form" action="#" method="post" aria-label="Contact form">
         <div class="contact-form__field">
           <label for="contact-name">Name <span class="required">*</span></label>
@@ -147,14 +176,15 @@
           <span aria-hidden="true" class="hover-text">&nbsp;Senden&nbsp;</span>
         </button>
       </form>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="logo/Normal_positiv/signet_Favicon_GETWIZE.svg" alt="" class="footer-logo" width="48" height="32">
-        <span class="footer-tagline">Getwize – Safety through Construction.</span>
+        <img src="logo/Farbvarianten/GW1.svg" alt="" class="footer-logo js-logo-main" width="48" height="32">
+     
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <ul class="footer-links">
