@@ -127,7 +127,6 @@ a:hover {
   z-index: 100;
   height: var(--header-height);
   background: var(--color-background);
-  box-shadow: var(--shadow);
 }
 
 .header-inner {
@@ -375,6 +374,7 @@ html.theme-dark .theme-toggle__icon--moon {
   position: relative;
   width: 100%;
   min-height: 280px;
+  margin-top: 2rem;
   overflow: hidden;
   background: var(--color-background);
   border-top: 1px solid var(--color-neutral);
@@ -415,7 +415,7 @@ html.theme-dark .theme-toggle__icon--moon {
 .hero-logo {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 4rem 1.5rem 3rem;
   text-align: center;
 }
 
@@ -423,7 +423,7 @@ html.theme-dark .theme-toggle__icon--moon {
   width: 100%;
   max-width: 420px;
   height: auto;
-  margin: 0 auto 1rem;
+  margin: 0 auto 2rem;
   display: block;
 }
 
@@ -439,7 +439,7 @@ html.theme-dark .theme-toggle__icon--moon {
 main {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
 .hero {
@@ -755,21 +755,31 @@ main {
   max-width: 32rem;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  background: var(--color-secondary);
+  background: var(--color-background-alt);
   border-radius: var(--radius);
 }
 
 .contact-form-container .contact-form__field label,
 .contact-form-container .contact-form__hint {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--color-text);
 }
 
 .contact-form-container .contact-form__hint {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-muted);
 }
 
 .contact-form-container .contact-form .required {
   color: var(--color-accent);
+}
+
+/* Nachtmodus: Formular mit dunklem Hintergrund und heller Schrift */
+html.theme-dark .contact-form-container .contact-form__field label,
+html.theme-dark .contact-form-container .contact-form__hint {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+html.theme-dark .contact-form-container .contact-form__hint {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .contact-form {
