@@ -30,8 +30,11 @@
   --transition: 0.2s ease;
 }
 
-/* Variante 2: alternative Farbpalette (Menü-Auswahl) */
-html.variant-2 {
+/* Varianten 2–5: alternative Farbpalette (wie Variante 2) */
+html.variant-2,
+html.variant-3,
+html.variant-4,
+html.variant-5 {
   --color-primary: #316766;
   --color-secondary: #2b363f;
   --color-background: #dcdcdd;
@@ -41,8 +44,11 @@ html.variant-2 {
   --color-primary-20: rgba(49, 103, 102, 0.2);
 }
 
-/* Variante 2: Card-Farben anpassen */
-html.variant-2 .card-parent--primary {
+/* Varianten 2–5: Card-Farben anpassen */
+html.variant-2 .card-parent--primary,
+html.variant-3 .card-parent--primary,
+html.variant-4 .card-parent--primary,
+html.variant-5 .card-parent--primary {
   --card-gradient: linear-gradient(135deg, #316766 0%, #25504f 100%);
   --card-dark: #1a3d3c;
   --card-shadow: rgba(26, 61, 60, 0) 40px 50px 25px -40px, rgba(26, 61, 60, 0.2) 0px 25px 25px -5px;
@@ -51,7 +57,10 @@ html.variant-2 .card-parent--primary {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-html.variant-2 .card-parent--neutral {
+html.variant-2 .card-parent--neutral,
+html.variant-3 .card-parent--neutral,
+html.variant-4 .card-parent--neutral,
+html.variant-5 .card-parent--neutral {
   --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
   --card-dark: #2b363f;
   --card-shadow: rgba(43, 54, 63, 0.15) 40px 50px 25px -40px, rgba(43, 54, 63, 0.1) 0px 25px 25px -5px;
@@ -60,7 +69,10 @@ html.variant-2 .card-parent--neutral {
   --card-circle: rgba(255, 255, 255, 0.3);
 }
 
-html.variant-2 .card-parent--accent {
+html.variant-2 .card-parent--accent,
+html.variant-3 .card-parent--accent,
+html.variant-4 .card-parent--accent,
+html.variant-5 .card-parent--accent {
   --card-gradient: linear-gradient(135deg, #e5bd47 0%, #c9a63d 100%);
   --card-dark: #8a7018;
   --card-shadow: rgba(138, 112, 24, 0) 40px 50px 25px -40px, rgba(138, 112, 24, 0.2) 0px 25px 25px -5px;
@@ -79,7 +91,10 @@ html.theme-dark {
   /* Cards unverändert lassen – kein --color-card-surface Override */
 }
 
-html.theme-dark.variant-2 {
+html.theme-dark.variant-2,
+html.theme-dark.variant-3,
+html.theme-dark.variant-4,
+html.theme-dark.variant-5 {
   --color-background: #1e2526;
   --color-background-alt: #2a3234;
   --color-secondary: #d0d0d0;
@@ -445,6 +460,19 @@ html.theme-dark .theme-toggle__icon--sun {
   }
 }
 
+/* Titel-Akzent (V-1 … V-5): ersetzt den Punkt, Höhe wie Schrift */
+.title-accent {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: baseline;
+  margin-left: 0.1em;
+}
+
+.title-accent--contact {
+  height: 0.75em;
+}
+
 .card-banner {
   display: flex;
   flex-direction: column;
@@ -526,13 +554,13 @@ html.theme-dark .theme-toggle__icon--sun {
 .hero-logo {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 4rem 1.5rem 3rem;
+  padding: 6rem 1.5rem 3rem;
   text-align: center;
 }
 
 .hero-logo__img {
   width: 100%;
-  max-width: 420px;
+  max-width: 546px; /* 30 % größer als 420px */
   height: auto;
   margin: 0 auto 2rem;
   display: block;
@@ -1091,7 +1119,7 @@ html.theme-dark .contact-form-container .contact-form__hint {
   }
 
   .hero-logo {
-    padding: 2.5rem 1rem 2rem;
+    padding: 3.5rem 1rem 2rem;
   }
 
   main {

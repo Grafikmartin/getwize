@@ -149,19 +149,22 @@ const LOGO_V1_MAIN = 'logo/Farbvarianten/GW1.svg';
 const LOGO_V1_CARD = 'logo/Farbvarianten/GW-S1.svg';
 const LOGO_V2_MAIN = 'logo/Farbvarianten/GW2.svg';
 const LOGO_V2_CARD = 'logo/Farbvarianten/GW-S2.svg';
+const V_ACCENT_FALLBACK = 'logo/Farbvarianten/V-1.svg';
 
 function setVariant(variant) {
-  const isV2 = variant === 2;
+  const v = Math.max(1, Math.min(5, Number(variant) || 1));
   const html = document.documentElement;
-  if (isV2) {
-    html.classList.add('variant-2');
-  } else {
-    html.classList.remove('variant-2');
-  }
-  const mainSrc = isV2 ? LOGO_V2_MAIN : LOGO_V1_MAIN;
-  const cardSrc = isV2 ? LOGO_V2_CARD : LOGO_V1_CARD;
+  html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5');
+  if (v >= 2) html.classList.add('variant-' + v);
+  const mainSrc = v === 1 ? LOGO_V1_MAIN : LOGO_V2_MAIN;
+  const cardSrc = v === 1 ? LOGO_V1_CARD : LOGO_V2_CARD;
   document.querySelectorAll('.js-logo-main').forEach((img) => { img.src = mainSrc; });
   document.querySelectorAll('.js-logo-card').forEach((img) => { img.src = cardSrc; });
+  const accentSrc = 'logo/Farbvarianten/V-' + v + '.svg';
+  document.querySelectorAll('.js-variant-accent').forEach((img) => {
+    img.src = accentSrc;
+    img.onerror = function () { this.onerror = null; this.src = V_ACCENT_FALLBACK; };
+  });
 }
 
 function init() {
@@ -169,7 +172,7 @@ function init() {
   document.querySelectorAll('.nav-variant-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const v = btn.getAttribute('data-variant');
-      if (v === '1' || v === '2') setVariant(Number(v));
+      if (v && v >= '1' && v <= '5') setVariant(Number(v));
       closeMenu();
     });
   });
