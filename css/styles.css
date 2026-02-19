@@ -30,11 +30,8 @@
   --transition: 0.2s ease;
 }
 
-/* Varianten 2–5: alternative Farbpalette (wie Variante 2) */
-html.variant-2,
-html.variant-3,
-html.variant-4,
-html.variant-5 {
+/* Variante 2: alternative Farbpalette (teal/gold) */
+html.variant-2 {
   --color-primary: #316766;
   --color-secondary: #2b363f;
   --color-background: #dcdcdd;
@@ -44,11 +41,41 @@ html.variant-5 {
   --color-primary-20: rgba(49, 103, 102, 0.2);
 }
 
-/* Varianten 2–5: Card-Farben anpassen */
-html.variant-2 .card-parent--primary,
-html.variant-3 .card-parent--primary,
-html.variant-4 .card-parent--primary,
-html.variant-5 .card-parent--primary {
+/* Variante 5: eigene Palette (primär 5d4c47, sekundär f1a94e; neutral und Akzent getauscht: neutral e45641, Akzent 44b3c2) */
+html.variant-5 {
+  --color-primary: #5d4c47;
+  --color-secondary: #f1a94e;
+  --color-background: #ffffff;
+  --color-background-alt: #f5f5f5;
+  --color-neutral: #e45641;
+  --color-accent: #44b3c2;
+  --color-primary-20: rgba(93, 76, 71, 0.2);
+}
+
+/* Variante 4: eigene Palette (primär 113742, sekundär c4bdb8, neutral weiß, Akzent c30019, Hintergrund e4e3d9) */
+html.variant-4 {
+  --color-primary: #113742;
+  --color-secondary: #c4bdb8;
+  --color-background: #e4e3d9;
+  --color-background-alt: #d8d7ce;
+  --color-neutral: #ffffff;
+  --color-accent: #c30019;
+  --color-primary-20: rgba(17, 55, 66, 0.2);
+}
+
+/* Variante 3: eigene Palette (primär 3f4349, sekundär c8c8c8, neutral eaeaea, Hintergrund weiß, Akzent 368cbf) */
+html.variant-3 {
+  --color-primary: #3f4349;
+  --color-secondary: #c8c8c8;
+  --color-background: #ffffff;
+  --color-background-alt: #eaeaea;
+  --color-neutral: #eaeaea;
+  --color-accent: #368cbf;
+  --color-primary-20: rgba(63, 67, 73, 0.2);
+}
+
+/* Variante 2: Card-Farben */
+html.variant-2 .card-parent--primary {
   --card-gradient: linear-gradient(135deg, #316766 0%, #25504f 100%);
   --card-dark: #1a3d3c;
   --card-shadow: rgba(26, 61, 60, 0) 40px 50px 25px -40px, rgba(26, 61, 60, 0.2) 0px 25px 25px -5px;
@@ -57,10 +84,7 @@ html.variant-5 .card-parent--primary {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-html.variant-2 .card-parent--neutral,
-html.variant-3 .card-parent--neutral,
-html.variant-4 .card-parent--neutral,
-html.variant-5 .card-parent--neutral {
+html.variant-2 .card-parent--neutral {
   --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
   --card-dark: #2b363f;
   --card-shadow: rgba(43, 54, 63, 0.15) 40px 50px 25px -40px, rgba(43, 54, 63, 0.1) 0px 25px 25px -5px;
@@ -69,15 +93,96 @@ html.variant-5 .card-parent--neutral {
   --card-circle: rgba(255, 255, 255, 0.3);
 }
 
-html.variant-2 .card-parent--accent,
-html.variant-3 .card-parent--accent,
-html.variant-4 .card-parent--accent,
-html.variant-5 .card-parent--accent {
+html.variant-2 .card-parent--accent {
   --card-gradient: linear-gradient(135deg, #e5bd47 0%, #c9a63d 100%);
   --card-dark: #8a7018;
   --card-shadow: rgba(138, 112, 24, 0) 40px 50px 25px -40px, rgba(138, 112, 24, 0.2) 0px 25px 25px -5px;
   --card-shadow-hover: rgba(138, 112, 24, 0.3) 30px 50px 25px -40px, rgba(138, 112, 24, 0.1) 0px 25px 30px 0px;
   --card-cta: #d4a83e;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+/* Variante 5: Card-Farben (an Palette angepasst) */
+html.variant-5 .card-parent--primary {
+  --card-gradient: linear-gradient(135deg, #5d4c47 0%, #453933 100%);
+  --card-dark: #2d2522;
+  --card-shadow: rgba(45, 37, 34, 0) 40px 50px 25px -40px, rgba(45, 37, 34, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(45, 37, 34, 0.3) 30px 50px 25px -40px, rgba(45, 37, 34, 0.1) 0px 25px 30px 0px;
+  --card-cta: #6e5c56;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+html.variant-5 .card-parent--neutral {
+  --card-gradient: linear-gradient(135deg, #e45641 0%, #c94836 100%);
+  --card-dark: #8a3025;
+  --card-shadow: rgba(138, 48, 37, 0) 40px 50px 25px -40px, rgba(138, 48, 37, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(138, 48, 37, 0.3) 30px 50px 25px -40px, rgba(138, 48, 37, 0.1) 0px 25px 30px 0px;
+  --card-cta: #eb6b58;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+html.variant-5 .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #44b3c2 0%, #369ba8 100%);
+  --card-dark: #2a6d76;
+  --card-shadow: rgba(42, 109, 118, 0) 40px 50px 25px -40px, rgba(42, 109, 118, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(42, 109, 118, 0.3) 30px 50px 25px -40px, rgba(42, 109, 118, 0.1) 0px 25px 30px 0px;
+  --card-cta: #5bc4d3;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+/* Variante 4: Card-Farben (an Palette angepasst) */
+html.variant-4 .card-parent--primary {
+  --card-gradient: linear-gradient(135deg, #113742 0%, #0d2a33 100%);
+  --card-dark: #081a20;
+  --card-shadow: rgba(8, 26, 32, 0) 40px 50px 25px -40px, rgba(8, 26, 32, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(8, 26, 32, 0.3) 30px 50px 25px -40px, rgba(8, 26, 32, 0.1) 0px 25px 30px 0px;
+  --card-cta: #164a58;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+html.variant-4 .card-parent--neutral {
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  --card-dark: #113742;
+  --card-shadow: rgba(17, 55, 66, 0.15) 40px 50px 25px -40px, rgba(17, 55, 66, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(17, 55, 66, 0.2) 30px 50px 25px -40px, rgba(17, 55, 66, 0.12) 0px 25px 30px 0px;
+  --card-cta: #113742;
+  --card-circle: rgba(255, 255, 255, 0.3);
+}
+
+html.variant-4 .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #c30019 0%, #9e0014 100%);
+  --card-dark: #5c000c;
+  --card-shadow: rgba(92, 0, 12, 0) 40px 50px 25px -40px, rgba(92, 0, 12, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(92, 0, 12, 0.3) 30px 50px 25px -40px, rgba(92, 0, 12, 0.1) 0px 25px 30px 0px;
+  --card-cta: #e6001a;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+/* Variante 3: Card-Farben (an Palette angepasst) */
+html.variant-3 .card-parent--primary {
+  --card-gradient: linear-gradient(135deg, #3f4349 0%, #2e3136 100%);
+  --card-dark: #1a1c1e;
+  --card-shadow: rgba(26, 28, 30, 0) 40px 50px 25px -40px, rgba(26, 28, 30, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(26, 28, 30, 0.3) 30px 50px 25px -40px, rgba(26, 28, 30, 0.1) 0px 25px 30px 0px;
+  --card-cta: #4a4f55;
+  --card-circle: rgba(255, 255, 255, 0.2);
+}
+
+html.variant-3 .card-parent--neutral {
+  --card-gradient: linear-gradient(135deg, #eaeaea 0%, #d5d5d5 100%);
+  --card-dark: #3f4349;
+  --card-shadow: rgba(63, 67, 73, 0.15) 40px 50px 25px -40px, rgba(63, 67, 73, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(63, 67, 73, 0.2) 30px 50px 25px -40px, rgba(63, 67, 73, 0.12) 0px 25px 30px 0px;
+  --card-cta: #3f4349;
+  --card-circle: rgba(255, 255, 255, 0.3);
+}
+
+html.variant-3 .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #368cbf 0%, #2a6a99 100%);
+  --card-dark: #1a3a52;
+  --card-shadow: rgba(26, 58, 82, 0) 40px 50px 25px -40px, rgba(26, 58, 82, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(26, 58, 82, 0.3) 30px 50px 25px -40px, rgba(26, 58, 82, 0.1) 0px 25px 30px 0px;
+  --card-cta: #4a9fd4;
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
@@ -91,13 +196,28 @@ html.theme-dark {
   /* Cards unverändert lassen – kein --color-card-surface Override */
 }
 
-html.theme-dark.variant-2,
-html.theme-dark.variant-3,
-html.theme-dark.variant-4,
-html.theme-dark.variant-5 {
+html.theme-dark.variant-2 {
   --color-background: #1e2526;
   --color-background-alt: #2a3234;
   --color-secondary: #d0d0d0;
+}
+
+html.theme-dark.variant-5 {
+  --color-background: #1e1b1a;
+  --color-background-alt: #2a2624;
+  --color-secondary: #f1a94e;
+}
+
+html.theme-dark.variant-4 {
+  --color-background: #141a1c;
+  --color-background-alt: #1e2629;
+  --color-secondary: #c4bdb8;
+}
+
+html.theme-dark.variant-3 {
+  --color-background: #1a1c1e;
+  --color-background-alt: #2a2d31;
+  --color-secondary: #c8c8c8;
 }
 
 html.theme-dark .contact-form-container {
@@ -174,10 +294,10 @@ a:hover {
   height: 2.5rem;
   padding: 0.5rem;
   background: transparent;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius);
   cursor: pointer;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 
@@ -235,7 +355,7 @@ html.theme-dark .theme-toggle__icon--sun {
   height: 2.5rem;
   padding: 0.5rem;
   background: transparent;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius);
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition);
@@ -249,7 +369,7 @@ html.theme-dark .theme-toggle__icon--sun {
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   border-radius: 1px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -508,6 +628,7 @@ html.theme-dark .theme-toggle__icon--sun {
   padding: 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .card-banner__title {
@@ -524,30 +645,6 @@ html.theme-dark .theme-toggle__icon--sun {
   line-height: 1.5;
   color: var(--color-text);
   flex: 1;
-}
-
-.card-banner__content .view-more {
-  display: flex;
-  align-items: center;
-  margin-top: auto;
-}
-
-.card-banner__content .view-more-button {
-  background: none;
-  border: none;
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 12px;
-  cursor: pointer;
-  font-family: var(--font-sans);
-}
-
-.card-banner__content .view-more__svg {
-  fill: none;
-  stroke: var(--color-accent);
-  stroke-width: 3px;
-  max-height: 15px;
-  margin-left: 4px;
 }
 
 /* ----- Hero-Logo (groß, mittig unter dem Hero-Bild) ----- */
@@ -591,7 +688,7 @@ main {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 .hero-subtitle {
@@ -642,6 +739,8 @@ main {
 
 .card-ui {
   height: 100%;
+  display: flex;
+  flex-direction: column;
   border-top-left-radius: var(--radius);
   border-top-right-radius: 60px;
   border-bottom-left-radius: var(--radius);
@@ -696,7 +795,10 @@ main {
 }
 
 .card-ui__content {
-  padding: 100px 60px 0 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 60px 20px 30px;
   transform: translate3d(0, 0, 26px);
   position: relative;
   z-index: 1;
@@ -719,49 +821,68 @@ main {
   line-height: 1.4;
 }
 
-.card-ui__bottom {
-  padding: 10px 12px 10px 30px;
-  transform-style: preserve-3d;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  transform: translate3d(0, 0, 26px);
-  z-index: 1;
-}
-
-.card-ui__bottom .view-more {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  white-space: nowrap;
-  transition: all 0.2s ease-in-out;
-}
-
-.card-ui__bottom .view-more:hover {
-  transform: translate3d(0, 0, 10px);
-}
-
-.view-more-button {
-  background: none;
+/* ----- View more: gleicher Stil wie Senden-Button (Border-Reveal-Hover) ----- */
+.view-more.button {
+  display: block;
+  align-self: flex-start;
+  margin: 0;
+  margin-top: auto;
+  padding: 0.25rem 0;
   border: none;
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 12px;
+  background: transparent;
   cursor: pointer;
+  text-align: left;
   font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  position: relative;
+  line-height: 1.2;
+  text-decoration: none;
+  --border-right: 4px;
+  --animation-color: var(--color-accent);
+}
+
+.view-more.button .actual-text,
+.view-more.button .hover-text {
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: top;
+}
+
+.view-more.button .hover-text {
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  box-sizing: border-box;
+  color: var(--animation-color);
+  width: 0%;
+  height: 1.2em;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: width 0.5s ease;
   white-space: nowrap;
 }
 
-.view-more__svg {
-  fill: none;
-  stroke: var(--color-accent);
-  stroke-width: 3px;
-  max-height: 15px;
-  margin-left: 4px;
+.view-more.button:hover .hover-text {
+  width: 100%;
+}
+
+.view-more.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* In Card-UI: gleiche Größe wie in Card-Banner, Primärfarbe vor Hover */
+.card-ui__content .view-more {
+  margin-top: auto;
+}
+
+/* In Card-Banner: unter dem Text */
+.card-banner__content .view-more {
+  margin-top: 1rem;
 }
 
 /* Logo circles */

@@ -149,6 +149,12 @@ const LOGO_V1_MAIN = 'logo/Farbvarianten/GW1.svg';
 const LOGO_V1_CARD = 'logo/Farbvarianten/GW-S1.svg';
 const LOGO_V2_MAIN = 'logo/Farbvarianten/GW2.svg';
 const LOGO_V2_CARD = 'logo/Farbvarianten/GW-S2.svg';
+const LOGO_V3_MAIN = 'logo/Farbvarianten/GW3.svg';
+const LOGO_V3_CARD = 'logo/Farbvarianten/GW-S3.svg';
+const LOGO_V4_MAIN = 'logo/Farbvarianten/GW4.svg';
+const LOGO_V4_CARD = 'logo/Farbvarianten/GW-S4.svg';
+const LOGO_V5_MAIN = 'logo/Farbvarianten/GW5.svg';
+const LOGO_V5_CARD = 'logo/Farbvarianten/GW-S5.svg';
 const V_ACCENT_FALLBACK = 'logo/Farbvarianten/V-1.svg';
 
 function setVariant(variant) {
@@ -156,8 +162,8 @@ function setVariant(variant) {
   const html = document.documentElement;
   html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5');
   if (v >= 2) html.classList.add('variant-' + v);
-  const mainSrc = v === 1 ? LOGO_V1_MAIN : LOGO_V2_MAIN;
-  const cardSrc = v === 1 ? LOGO_V1_CARD : LOGO_V2_CARD;
+  const mainSrc = v === 1 ? LOGO_V1_MAIN : (v === 3 ? LOGO_V3_MAIN : (v === 4 ? LOGO_V4_MAIN : (v === 5 ? LOGO_V5_MAIN : LOGO_V2_MAIN)));
+  const cardSrc = v === 1 ? LOGO_V1_CARD : (v === 3 ? LOGO_V3_CARD : (v === 4 ? LOGO_V4_CARD : (v === 5 ? LOGO_V5_CARD : LOGO_V2_CARD)));
   document.querySelectorAll('.js-logo-main').forEach((img) => { img.src = mainSrc; });
   document.querySelectorAll('.js-logo-card').forEach((img) => { img.src = cardSrc; });
   const accentSrc = 'logo/Farbvarianten/V-' + v + '.svg';
