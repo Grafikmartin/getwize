@@ -237,7 +237,7 @@ function setVariant(variant) {
   if (captionVariant) captionVariant.textContent = v;
   const footerLogo = document.querySelector('.js-logo-footer');
   if (footerLogo) {
-    const footerSrc = v === 1 ? LOGO_V1_MAIN_DARK : v === 7 ? 'logo/Farbvarianten/GW7-n.svg' : mainSrc;
+    const footerSrc = v === 1 ? LOGO_V1_MAIN_DARK : v === 3 ? LOGO_V3_MAIN_DARK : v === 5 ? LOGO_V5_MAIN_DARK : v === 6 ? 'logo/Farbvarianten/GW6-n.svg' : v === 7 ? 'logo/Farbvarianten/GW7-n.svg' : mainSrc;
     footerLogo.src = footerSrc;
   }
 }

@@ -157,10 +157,10 @@ html.variant-6 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 7: Card-Hintergrund Neutralfarbe (ffffff), Akzent #d76b30 */
-html.variant-7 .card-parent--primary,
-html.variant-7 .card-parent--neutral {
-  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+/* Variante 7 Tagesmodus: Card-Hintergrund Sekundärfarbe (#c4d6a0), Akzent #d76b30 */
+html.variant-7:not(.theme-dark) .card-parent--primary,
+html.variant-7:not(.theme-dark) .card-parent--neutral {
+  --card-gradient: linear-gradient(135deg, #c4d6a0 0%, #a8c084 100%);
   --card-dark: #7d7c73;
   --card-shadow: rgba(125, 124, 115, 0.15) 40px 50px 25px -40px, rgba(125, 124, 115, 0.1) 0px 25px 25px -5px;
   --card-shadow-hover: rgba(125, 124, 115, 0.2) 30px 50px 25px -40px, rgba(125, 124, 115, 0.12) 0px 25px 30px 0px;
@@ -933,6 +933,11 @@ html.variant-4 .card-banner {
 html.variant-2:not(.theme-dark) .hero-variant-title,
 html.variant-2:not(.theme-dark) .hero-logo__caption {
   color: rgba(56, 48, 48, 0.3);
+}
+
+/* Variante 7: Überschrift „Variante 7“ in Primärfarbe */
+html.variant-7 .hero-variant-title {
+  color: var(--color-primary);
 }
 
 .hero-logo__img {
