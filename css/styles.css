@@ -821,6 +821,12 @@ html.theme-dark .theme-toggle__icon--sun {
   line-height: 1.4;
 }
 
+/* Variante 2 Tagmodus: Überschrift über dem Bild und Bildunterschrift 30 % transparent Primärfarbe */
+html.variant-2:not(.theme-dark) .hero-variant-title,
+html.variant-2:not(.theme-dark) .hero-logo__caption {
+  color: rgba(56, 48, 48, 0.3);
+}
+
 .hero-logo__img {
   width: 100%;
   max-width: 546px; /* 30 % größer als 420px */
