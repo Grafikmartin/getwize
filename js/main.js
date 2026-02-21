@@ -39,7 +39,7 @@ function setTheme(dark) {
 
 function getCurrentVariant() {
   const html = document.documentElement;
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 7; i++) {
     if (html.classList.contains('variant-' + i)) return i;
   }
   return 1;
@@ -166,16 +166,32 @@ const LOGO_V4_MAIN = 'logo/Farbvarianten/GW4.svg';
 const LOGO_V4_CARD = 'logo/Farbvarianten/GW-S4.svg';
 const LOGO_V5_MAIN = 'logo/Farbvarianten/GW5.svg';
 const LOGO_V5_CARD = 'logo/Farbvarianten/GW-S5.svg';
+const LOGO_V6_MAIN = 'logo/Farbvarianten/GW6.svg';
+const LOGO_V6_CARD = 'logo/Farbvarianten/GW-S6.svg';
+const LOGO_V7_MAIN = 'logo/Farbvarianten/GW7.svg';
+const LOGO_V7_CARD = 'logo/Farbvarianten/GW-S7.svg';
 const V_ACCENT_FALLBACK = 'logo/Farbvarianten/V-1.svg';
 
 function setVariant(variant) {
-  const v = Math.max(1, Math.min(5, Number(variant) || 1));
+  const v = Math.max(1, Math.min(7, Number(variant) || 1));
   const html = document.documentElement;
-  html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5');
+  html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5', 'variant-6', 'variant-7');
   if (v >= 2) html.classList.add('variant-' + v);
   const isDarkV1 = v === 1 && html.classList.contains('theme-dark');
-  const mainSrc = v === 1 ? (isDarkV1 ? LOGO_V1_MAIN_DARK : LOGO_V1_MAIN) : (v === 3 ? LOGO_V3_MAIN : (v === 4 ? LOGO_V4_MAIN : (v === 5 ? LOGO_V5_MAIN : LOGO_V2_MAIN)));
-  const cardSrc = v === 1 ? (isDarkV1 ? LOGO_V1_CARD_DARK : LOGO_V1_CARD) : (v === 3 ? LOGO_V3_CARD : (v === 4 ? LOGO_V4_CARD : (v === 5 ? LOGO_V5_CARD : LOGO_V2_CARD)));
+  const mainSrc = v === 1 ? (isDarkV1 ? LOGO_V1_MAIN_DARK : LOGO_V1_MAIN)
+    : v === 2 ? LOGO_V2_MAIN
+    : v === 3 ? LOGO_V3_MAIN
+    : v === 4 ? LOGO_V4_MAIN
+    : v === 5 ? LOGO_V5_MAIN
+    : v === 6 ? LOGO_V6_MAIN
+    : LOGO_V7_MAIN;
+  const cardSrc = v === 1 ? (isDarkV1 ? LOGO_V1_CARD_DARK : LOGO_V1_CARD)
+    : v === 2 ? LOGO_V2_CARD
+    : v === 3 ? LOGO_V3_CARD
+    : v === 4 ? LOGO_V4_CARD
+    : v === 5 ? LOGO_V5_CARD
+    : v === 6 ? LOGO_V6_CARD
+    : LOGO_V7_CARD;
   document.querySelectorAll('.js-logo-main').forEach((img) => {
     img.src = mainSrc;
     if (mainSrc === LOGO_V1_MAIN_DARK) {
@@ -204,7 +220,7 @@ function init() {
   document.querySelectorAll('.nav-variant-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const v = btn.getAttribute('data-variant');
-      if (v && v >= '1' && v <= '5') setVariant(Number(v));
+      if (v && v >= '1' && v <= '7') setVariant(Number(v));
       closeMenu();
     });
   });
