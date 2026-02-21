@@ -235,6 +235,11 @@ function setVariant(variant) {
   if (heroVariantTitle) heroVariantTitle.textContent = 'Variante ' + v;
   const captionVariant = document.querySelector('.js-caption-variant');
   if (captionVariant) captionVariant.textContent = v;
+  const footerLogo = document.querySelector('.js-logo-footer');
+  if (footerLogo) {
+    const footerSrc = v === 1 ? LOGO_V1_MAIN_DARK : v === 7 ? 'logo/Farbvarianten/GW7-n.svg' : mainSrc;
+    footerLogo.src = footerSrc;
+  }
 }
 
 function init() {
