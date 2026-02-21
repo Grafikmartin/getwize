@@ -160,6 +160,8 @@ const LOGO_V1_MAIN_DARK = 'logo/Farbvarianten/GW1-n.svg';
 const LOGO_V1_CARD_DARK = 'logo/Farbvarianten/GW-S1-n.svg';
 const LOGO_V2_MAIN = 'logo/Farbvarianten/GW2.svg';
 const LOGO_V2_CARD = 'logo/Farbvarianten/GW-S2.svg';
+const LOGO_V2_MAIN_DARK = 'logo/Farbvarianten/GW2-n.svg';
+const LOGO_V2_CARD_DARK = 'logo/Farbvarianten/GW-S2-n.svg';
 const LOGO_V3_MAIN = 'logo/Farbvarianten/GW3.svg';
 const LOGO_V3_CARD = 'logo/Farbvarianten/GW-S3.svg';
 const LOGO_V4_MAIN = 'logo/Farbvarianten/GW4.svg';
@@ -177,16 +179,18 @@ function setVariant(variant) {
   const html = document.documentElement;
   html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5', 'variant-6', 'variant-7');
   if (v >= 2) html.classList.add('variant-' + v);
-  const isDarkV1 = v === 1 && html.classList.contains('theme-dark');
+  const isDark = html.classList.contains('theme-dark');
+  const isDarkV1 = v === 1 && isDark;
+  const isDarkV2 = v === 2 && isDark;
   const mainSrc = v === 1 ? (isDarkV1 ? LOGO_V1_MAIN_DARK : LOGO_V1_MAIN)
-    : v === 2 ? LOGO_V2_MAIN
+    : v === 2 ? (isDarkV2 ? LOGO_V2_MAIN_DARK : LOGO_V2_MAIN)
     : v === 3 ? LOGO_V3_MAIN
     : v === 4 ? LOGO_V4_MAIN
     : v === 5 ? LOGO_V5_MAIN
     : v === 6 ? LOGO_V6_MAIN
     : LOGO_V7_MAIN;
   const cardSrc = v === 1 ? (isDarkV1 ? LOGO_V1_CARD_DARK : LOGO_V1_CARD)
-    : v === 2 ? LOGO_V2_CARD
+    : v === 2 ? (isDarkV2 ? LOGO_V2_CARD_DARK : LOGO_V2_CARD)
     : v === 3 ? LOGO_V3_CARD
     : v === 4 ? LOGO_V4_CARD
     : v === 5 ? LOGO_V5_CARD
@@ -196,12 +200,16 @@ function setVariant(variant) {
     img.src = mainSrc;
     if (mainSrc === LOGO_V1_MAIN_DARK) {
       img.onerror = function () { this.onerror = null; this.src = LOGO_V1_MAIN; };
+    } else if (mainSrc === LOGO_V2_MAIN_DARK) {
+      img.onerror = function () { this.onerror = null; this.src = LOGO_V2_MAIN; };
     }
   });
   document.querySelectorAll('.js-logo-card').forEach((img) => {
     img.src = cardSrc;
     if (cardSrc === LOGO_V1_CARD_DARK) {
       img.onerror = function () { this.onerror = null; this.src = LOGO_V1_CARD; };
+    } else if (cardSrc === LOGO_V2_CARD_DARK) {
+      img.onerror = function () { this.onerror = null; this.src = LOGO_V2_CARD; };
     }
   });
   const accentSrc = 'logo/Farbvarianten/V-' + v + '.svg';
