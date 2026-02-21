@@ -34,6 +34,15 @@ function setTheme(dark) {
   try {
     localStorage.setItem(THEME_KEY, dark ? THEME_DARK : THEME_LIGHT);
   } catch (_e) {}
+  setVariant(getCurrentVariant());
+}
+
+function getCurrentVariant() {
+  const html = document.documentElement;
+  for (let i = 1; i <= 5; i++) {
+    if (html.classList.contains('variant-' + i)) return i;
+  }
+  return 1;
 }
 
 function toggleTheme() {
@@ -147,6 +156,8 @@ function initHeroBanner() {
 
 const LOGO_V1_MAIN = 'logo/Farbvarianten/GW1.svg';
 const LOGO_V1_CARD = 'logo/Farbvarianten/GW-S1.svg';
+const LOGO_V1_MAIN_DARK = 'logo/Farbvarianten/GW1-n.svg';
+const LOGO_V1_CARD_DARK = 'logo/Farbvarianten/GW-S1-n.svg';
 const LOGO_V2_MAIN = 'logo/Farbvarianten/GW2.svg';
 const LOGO_V2_CARD = 'logo/Farbvarianten/GW-S2.svg';
 const LOGO_V3_MAIN = 'logo/Farbvarianten/GW3.svg';
@@ -162,15 +173,30 @@ function setVariant(variant) {
   const html = document.documentElement;
   html.classList.remove('variant-2', 'variant-3', 'variant-4', 'variant-5');
   if (v >= 2) html.classList.add('variant-' + v);
-  const mainSrc = v === 1 ? LOGO_V1_MAIN : (v === 3 ? LOGO_V3_MAIN : (v === 4 ? LOGO_V4_MAIN : (v === 5 ? LOGO_V5_MAIN : LOGO_V2_MAIN)));
-  const cardSrc = v === 1 ? LOGO_V1_CARD : (v === 3 ? LOGO_V3_CARD : (v === 4 ? LOGO_V4_CARD : (v === 5 ? LOGO_V5_CARD : LOGO_V2_CARD)));
-  document.querySelectorAll('.js-logo-main').forEach((img) => { img.src = mainSrc; });
-  document.querySelectorAll('.js-logo-card').forEach((img) => { img.src = cardSrc; });
+  const isDarkV1 = v === 1 && html.classList.contains('theme-dark');
+  const mainSrc = v === 1 ? (isDarkV1 ? LOGO_V1_MAIN_DARK : LOGO_V1_MAIN) : (v === 3 ? LOGO_V3_MAIN : (v === 4 ? LOGO_V4_MAIN : (v === 5 ? LOGO_V5_MAIN : LOGO_V2_MAIN)));
+  const cardSrc = v === 1 ? (isDarkV1 ? LOGO_V1_CARD_DARK : LOGO_V1_CARD) : (v === 3 ? LOGO_V3_CARD : (v === 4 ? LOGO_V4_CARD : (v === 5 ? LOGO_V5_CARD : LOGO_V2_CARD)));
+  document.querySelectorAll('.js-logo-main').forEach((img) => {
+    img.src = mainSrc;
+    if (mainSrc === LOGO_V1_MAIN_DARK) {
+      img.onerror = function () { this.onerror = null; this.src = LOGO_V1_MAIN; };
+    }
+  });
+  document.querySelectorAll('.js-logo-card').forEach((img) => {
+    img.src = cardSrc;
+    if (cardSrc === LOGO_V1_CARD_DARK) {
+      img.onerror = function () { this.onerror = null; this.src = LOGO_V1_CARD; };
+    }
+  });
   const accentSrc = 'logo/Farbvarianten/V-' + v + '.svg';
   document.querySelectorAll('.js-variant-accent').forEach((img) => {
     img.src = accentSrc;
     img.onerror = function () { this.onerror = null; this.src = V_ACCENT_FALLBACK; };
   });
+  const heroVariantTitle = document.querySelector('.js-hero-variant-title');
+  if (heroVariantTitle) heroVariantTitle.textContent = 'Variante ' + v;
+  const captionVariant = document.querySelector('.js-caption-variant');
+  if (captionVariant) captionVariant.textContent = v;
 }
 
 function init() {

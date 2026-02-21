@@ -75,14 +75,14 @@ html.variant-3 {
   --color-primary-20: rgba(63, 67, 73, 0.2);
 }
 
-/* Variante 2: Card-Farben */
+/* Variante 2: Card-Hintergrund Neutralfarbe (ffffff) */
 html.variant-2 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #316766 0%, #25504f 100%);
-  --card-dark: #1a3d3c;
-  --card-shadow: rgba(26, 61, 60, 0) 40px 50px 25px -40px, rgba(26, 61, 60, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(26, 61, 60, 0.3) 30px 50px 25px -40px, rgba(26, 61, 60, 0.1) 0px 25px 30px 0px;
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  --card-dark: #2b363f;
+  --card-shadow: rgba(43, 54, 63, 0.15) 40px 50px 25px -40px, rgba(43, 54, 63, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(43, 54, 63, 0.2) 30px 50px 25px -40px, rgba(43, 54, 63, 0.12) 0px 25px 30px 0px;
   --card-cta: #3d7a79;
-  --card-circle: rgba(255, 255, 255, 0.2);
+  --card-circle: rgba(255, 255, 255, 0.3);
 }
 
 html.variant-2 .card-parent--neutral {
@@ -103,12 +103,12 @@ html.variant-2 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 5: Card-Farben (an Palette angepasst) */
+/* Variante 5: Card-Hintergrund Neutralfarbe (e45641) */
 html.variant-5 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #5d4c47 0%, #453933 100%);
-  --card-dark: #2d2522;
-  --card-shadow: rgba(45, 37, 34, 0) 40px 50px 25px -40px, rgba(45, 37, 34, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(45, 37, 34, 0.3) 30px 50px 25px -40px, rgba(45, 37, 34, 0.1) 0px 25px 30px 0px;
+  --card-gradient: linear-gradient(135deg, #e45641 0%, #c94836 100%);
+  --card-dark: #8a3025;
+  --card-shadow: rgba(138, 48, 37, 0) 40px 50px 25px -40px, rgba(138, 48, 37, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(138, 48, 37, 0.3) 30px 50px 25px -40px, rgba(138, 48, 37, 0.1) 0px 25px 30px 0px;
   --card-cta: #6e5c56;
   --card-circle: rgba(255, 255, 255, 0.2);
 }
@@ -131,14 +131,14 @@ html.variant-5 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 4: Card-Farben (an Palette angepasst) */
+/* Variante 4: Card-Hintergrund Neutralfarbe (ffffff) */
 html.variant-4 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #113742 0%, #0d2a33 100%);
-  --card-dark: #081a20;
-  --card-shadow: rgba(8, 26, 32, 0) 40px 50px 25px -40px, rgba(8, 26, 32, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(8, 26, 32, 0.3) 30px 50px 25px -40px, rgba(8, 26, 32, 0.1) 0px 25px 30px 0px;
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  --card-dark: #113742;
+  --card-shadow: rgba(17, 55, 66, 0.15) 40px 50px 25px -40px, rgba(17, 55, 66, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(17, 55, 66, 0.2) 30px 50px 25px -40px, rgba(17, 55, 66, 0.12) 0px 25px 30px 0px;
   --card-cta: #164a58;
-  --card-circle: rgba(255, 255, 255, 0.2);
+  --card-circle: rgba(255, 255, 255, 0.3);
 }
 
 html.variant-4 .card-parent--neutral {
@@ -159,14 +159,14 @@ html.variant-4 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 3: Card-Farben (an Palette angepasst) */
+/* Variante 3: Card-Hintergrund Neutralfarbe (eaeaea) */
 html.variant-3 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #3f4349 0%, #2e3136 100%);
-  --card-dark: #1a1c1e;
-  --card-shadow: rgba(26, 28, 30, 0) 40px 50px 25px -40px, rgba(26, 28, 30, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(26, 28, 30, 0.3) 30px 50px 25px -40px, rgba(26, 28, 30, 0.1) 0px 25px 30px 0px;
+  --card-gradient: linear-gradient(135deg, #eaeaea 0%, #d5d5d5 100%);
+  --card-dark: #3f4349;
+  --card-shadow: rgba(63, 67, 73, 0.15) 40px 50px 25px -40px, rgba(63, 67, 73, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(63, 67, 73, 0.2) 30px 50px 25px -40px, rgba(63, 67, 73, 0.12) 0px 25px 30px 0px;
   --card-cta: #4a4f55;
-  --card-circle: rgba(255, 255, 255, 0.2);
+  --card-circle: rgba(255, 255, 255, 0.3);
 }
 
 html.variant-3 .card-parent--neutral {
@@ -734,7 +734,7 @@ html.theme-dark .theme-toggle__icon--sun {
 .hero-logo__caption {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-neutral);
+  color: var(--color-secondary);
   margin: 0 auto 4rem;
   max-width: 40rem;
   line-height: 1.4;
@@ -833,17 +833,17 @@ main {
   background: var(--card-gradient);
   transition: all 0.5s ease-in-out;
   transform-style: preserve-3d;
-  box-shadow: var(--card-shadow);
+  box-shadow: none;
   position: relative;
 }
 
-/* Variante 1: Card-Farben (primär 343434, neutral e1e1e1, akzent 99cd4e) */
+/* Variante 1: Card-Hintergrund Neutralfarbe (e1e1e1) */
 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #343434 0%, #252525 100%);
-  --card-dark: #1a1a1a;
-  --card-shadow: rgba(26, 26, 26, 0) 40px 50px 25px -40px, rgba(26, 26, 26, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(26, 26, 26, 0.3) 30px 50px 25px -40px, rgba(26, 26, 26, 0.1) 0px 25px 30px 0px;
-  --card-cta: #454545;
+  --card-gradient: linear-gradient(135deg, #e1e1e1 0%, #c8c8c8 100%);
+  --card-dark: #343434;
+  --card-shadow: rgba(52, 52, 52, 0.15) 40px 50px 25px -40px, rgba(52, 52, 52, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(52, 52, 52, 0.2) 30px 50px 25px -40px, rgba(52, 52, 52, 0.12) 0px 25px 30px 0px;
+  --card-cta: #343434;
   --card-circle: rgba(var(--color-card-surface), 0.2);
 }
 
@@ -1030,7 +1030,7 @@ main {
 /* Hover: 3D tilt and lift */
 .card-parent:hover .card-ui {
   transform: rotate3d(1, 1, 0, 30deg);
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: none;
 }
 
 .card-parent:hover .card-ui .card-ui__logo .circle3 {
@@ -1102,11 +1102,12 @@ main {
   text-decoration: underline;
 }
 
+/* Tagesmodus: Formular-Fläche in Neutralfarbe */
 .contact-form-container {
   max-width: 32rem;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  background: var(--color-primary-20);
+  background: var(--color-neutral);
   border: 1px solid var(--color-primary);
   border-radius: var(--radius);
 }
