@@ -42,15 +42,15 @@ html.variant-2 {
   --color-primary-20: rgba(56, 48, 48, 0.2);
 }
 
-/* Variante 5: eigene Palette (primär 5d4c47, sekundär f1a94e; neutral und Akzent getauscht: neutral e45641, Akzent 44b3c2) */
+/* Variante 5: Primär #2b363f, Sekundär #316766, Neutral #ffffff, Akzent #e5bd47, Hintergrund #dcdcdd */
 html.variant-5 {
-  --color-primary: #5d4c47;
-  --color-secondary: #f1a94e;
-  --color-background: #ffffff;
-  --color-background-alt: #f5f5f5;
-  --color-neutral: #e45641;
-  --color-accent: #44b3c2;
-  --color-primary-20: rgba(93, 76, 71, 0.2);
+  --color-primary: #2b363f;
+  --color-secondary: #316766;
+  --color-background: #dcdcdd;
+  --color-background-alt: #d0d0d0;
+  --color-neutral: #ffffff;
+  --color-accent: #e5bd47;
+  --color-primary-20: rgba(43, 54, 63, 0.2);
 }
 
 html.variant-6 {
@@ -115,31 +115,23 @@ html.variant-2 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 5: Card-Hintergrund Neutralfarbe (e45641) */
-html.variant-5 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #e45641 0%, #c94836 100%);
-  --card-dark: #8a3025;
-  --card-shadow: rgba(138, 48, 37, 0) 40px 50px 25px -40px, rgba(138, 48, 37, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(138, 48, 37, 0.3) 30px 50px 25px -40px, rgba(138, 48, 37, 0.1) 0px 25px 30px 0px;
-  --card-cta: #6e5c56;
-  --card-circle: rgba(255, 255, 255, 0.2);
-}
-
+/* Variante 5: Card-Hintergrund Neutralfarbe (ffffff), Akzent #e5bd47 */
+html.variant-5 .card-parent--primary,
 html.variant-5 .card-parent--neutral {
-  --card-gradient: linear-gradient(135deg, #e45641 0%, #c94836 100%);
-  --card-dark: #8a3025;
-  --card-shadow: rgba(138, 48, 37, 0) 40px 50px 25px -40px, rgba(138, 48, 37, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(138, 48, 37, 0.3) 30px 50px 25px -40px, rgba(138, 48, 37, 0.1) 0px 25px 30px 0px;
-  --card-cta: #eb6b58;
-  --card-circle: rgba(255, 255, 255, 0.2);
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  --card-dark: #2b363f;
+  --card-shadow: rgba(43, 54, 63, 0.15) 40px 50px 25px -40px, rgba(43, 54, 63, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(43, 54, 63, 0.2) 30px 50px 25px -40px, rgba(43, 54, 63, 0.12) 0px 25px 30px 0px;
+  --card-cta: #2b363f;
+  --card-circle: rgba(255, 255, 255, 0.3);
 }
 
 html.variant-5 .card-parent--accent {
-  --card-gradient: linear-gradient(135deg, #44b3c2 0%, #369ba8 100%);
-  --card-dark: #2a6d76;
-  --card-shadow: rgba(42, 109, 118, 0) 40px 50px 25px -40px, rgba(42, 109, 118, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(42, 109, 118, 0.3) 30px 50px 25px -40px, rgba(42, 109, 118, 0.1) 0px 25px 30px 0px;
-  --card-cta: #5bc4d3;
+  --card-gradient: linear-gradient(135deg, #e5bd47 0%, #c9a63d 100%);
+  --card-dark: #8a7018;
+  --card-shadow: rgba(138, 112, 24, 0) 40px 50px 25px -40px, rgba(138, 112, 24, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(138, 112, 24, 0.3) 30px 50px 25px -40px, rgba(138, 112, 24, 0.1) 0px 25px 30px 0px;
+  --card-cta: #f0c952;
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
@@ -264,9 +256,9 @@ html.theme-dark.variant-7 {
 }
 
 html.theme-dark.variant-5 {
-  --color-background: #1e1b1a;
-  --color-background-alt: #2a2624;
-  --color-secondary: #f1a94e;
+  --color-background: #1a1d1f;
+  --color-background-alt: #2b363f;
+  --color-secondary: #4a7c7b;
 }
 
 html.theme-dark.variant-4 {
