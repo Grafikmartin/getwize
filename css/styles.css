@@ -261,6 +261,22 @@ html.theme-dark.variant-5 {
   --color-secondary: #4a7c7b;
 }
 
+/* Variante 5 Nachtmodus: Cards mit dunklem Hintergrund (Sekundärfarbe statt Neutral) */
+html.theme-dark.variant-5 .card-parent--primary,
+html.theme-dark.variant-5 .card-parent--neutral,
+html.theme-dark.variant-5 .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #316766 0%, #3d7a79 100%);
+  --card-dark: #1a3d3c;
+  --card-shadow: rgba(49, 103, 102, 0.35) 40px 50px 25px -40px, rgba(49, 103, 102, 0.25) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(49, 103, 102, 0.45) 30px 50px 25px -40px, rgba(49, 103, 102, 0.3) 0px 25px 30px 0px;
+  --card-cta: #e8e8e8;
+  --card-circle: rgba(255, 255, 255, 0.15);
+}
+
+html.theme-dark.variant-5 .card-parent--accent {
+  --card-cta: var(--color-accent);
+}
+
 html.theme-dark.variant-4 {
   --color-background: #141516;
   --color-background-alt: #1f2127;
