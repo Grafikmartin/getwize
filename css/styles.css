@@ -293,6 +293,11 @@ html.theme-dark .contact-form-container {
   background: #2d2d2d;
 }
 
+/* Nachtmodus: Card-Banner-Überschriften (Lorem Ipsum Dolor, Consectetur Adipiscing) weiß */
+html.theme-dark .card-banner__title {
+  color: #fff;
+}
+
 /* Nachtmodus: Icons, Überschriften und Button-Texte weiß */
 html.theme-dark .theme-toggle {
   color: #fff;
