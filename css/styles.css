@@ -73,15 +73,15 @@ html.variant-7 {
   --color-primary-20: rgba(93, 76, 71, 0.2);
 }
 
-/* Variante 4: eigene Palette (primär 113742, sekundär c4bdb8, neutral weiß, Akzent c30019, Hintergrund e4e3d9) */
+/* Variante 4: Primär #1f2127, Sekundär #aabdbd, Neutral #1f2127, Akzent #9f1b25, Hintergrund #ffffff */
 html.variant-4 {
-  --color-primary: #113742;
-  --color-secondary: #c4bdb8;
-  --color-background: #e4e3d9;
-  --color-background-alt: #d8d7ce;
-  --color-neutral: #ffffff;
-  --color-accent: #c30019;
-  --color-primary-20: rgba(17, 55, 66, 0.2);
+  --color-primary: #1f2127;
+  --color-secondary: #aabdbd;
+  --color-background: #ffffff;
+  --color-background-alt: #f5f5f5;
+  --color-neutral: #1f2127;
+  --color-accent: #9f1b25;
+  --color-primary-20: rgba(31, 33, 39, 0.2);
 }
 
 /* Variante 3: Primär #113742, Sekundär #c4bdb8, Neutral #ffffff, Akzent #c30019, Hintergrund #e4e3d9 */
@@ -165,31 +165,23 @@ html.variant-7 .card-parent--accent {
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
-/* Variante 4: Card-Hintergrund Neutralfarbe (ffffff) */
-html.variant-4 .card-parent--primary {
-  --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
-  --card-dark: #113742;
-  --card-shadow: rgba(17, 55, 66, 0.15) 40px 50px 25px -40px, rgba(17, 55, 66, 0.1) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(17, 55, 66, 0.2) 30px 50px 25px -40px, rgba(17, 55, 66, 0.12) 0px 25px 30px 0px;
-  --card-cta: #164a58;
-  --card-circle: rgba(255, 255, 255, 0.3);
-}
-
+/* Variante 4: Card-Hintergrund weiß, Primär #1f2127, Akzent #9f1b25 */
+html.variant-4 .card-parent--primary,
 html.variant-4 .card-parent--neutral {
   --card-gradient: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
-  --card-dark: #113742;
-  --card-shadow: rgba(17, 55, 66, 0.15) 40px 50px 25px -40px, rgba(17, 55, 66, 0.1) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(17, 55, 66, 0.2) 30px 50px 25px -40px, rgba(17, 55, 66, 0.12) 0px 25px 30px 0px;
-  --card-cta: #113742;
+  --card-dark: #1f2127;
+  --card-shadow: rgba(31, 33, 39, 0.15) 40px 50px 25px -40px, rgba(31, 33, 39, 0.1) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(31, 33, 39, 0.2) 30px 50px 25px -40px, rgba(31, 33, 39, 0.12) 0px 25px 30px 0px;
+  --card-cta: #1f2127;
   --card-circle: rgba(255, 255, 255, 0.3);
 }
 
 html.variant-4 .card-parent--accent {
-  --card-gradient: linear-gradient(135deg, #c30019 0%, #9e0014 100%);
-  --card-dark: #5c000c;
-  --card-shadow: rgba(92, 0, 12, 0) 40px 50px 25px -40px, rgba(92, 0, 12, 0.2) 0px 25px 25px -5px;
-  --card-shadow-hover: rgba(92, 0, 12, 0.3) 30px 50px 25px -40px, rgba(92, 0, 12, 0.1) 0px 25px 30px 0px;
-  --card-cta: #e6001a;
+  --card-gradient: linear-gradient(135deg, #9f1b25 0%, #7e151d 100%);
+  --card-dark: #4a0d12;
+  --card-shadow: rgba(74, 13, 18, 0) 40px 50px 25px -40px, rgba(74, 13, 18, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(74, 13, 18, 0.3) 30px 50px 25px -40px, rgba(74, 13, 18, 0.1) 0px 25px 30px 0px;
+  --card-cta: #c9222e;
   --card-circle: rgba(255, 255, 255, 0.2);
 }
 
@@ -278,9 +270,25 @@ html.theme-dark.variant-5 {
 }
 
 html.theme-dark.variant-4 {
-  --color-background: #141a1c;
-  --color-background-alt: #1e2629;
-  --color-secondary: #c4bdb8;
+  --color-background: #141516;
+  --color-background-alt: #1f2127;
+  --color-secondary: #8a9a9a;
+}
+
+/* Variante 4 Nachtmodus: Card-Hintergrund Primärfarbe (#1f2127) statt Neutral/Weiß */
+html.theme-dark.variant-4 .card-parent--primary,
+html.theme-dark.variant-4 .card-parent--neutral,
+html.theme-dark.variant-4 .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #1f2127 0%, #2d3038 100%);
+  --card-dark: #0d0e10;
+  --card-shadow: rgba(31, 33, 39, 0.35) 40px 50px 25px -40px, rgba(31, 33, 39, 0.25) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(31, 33, 39, 0.45) 30px 50px 25px -40px, rgba(31, 33, 39, 0.3) 0px 25px 30px 0px;
+  --card-cta: #e8e8e8;
+  --card-circle: rgba(255, 255, 255, 0.15);
+}
+
+html.theme-dark.variant-4 .card-parent--accent {
+  --card-cta: var(--color-accent);
 }
 
 html.theme-dark.variant-3 {
@@ -748,6 +756,11 @@ html.theme-dark .theme-toggle__icon--sun {
   background: var(--color-primary-20);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+/* Variante 4: Card-Banner-Hintergrund wie Formular (Sekundärfarbe) */
+html.variant-4 .card-banner {
+  background: var(--color-secondary);
   overflow: hidden;
   border: 1px solid var(--color-primary);
 }
@@ -1189,6 +1202,11 @@ main {
   background: var(--color-neutral);
   border: 1px solid var(--color-primary);
   border-radius: var(--radius);
+}
+
+/* Variante 4: Formular mit Sekundärfarbe als Hintergrund */
+html.variant-4 .contact-form-container {
+  background: var(--color-secondary);
 }
 
 .contact-form-container .contact-form__field label,
