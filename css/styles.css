@@ -296,9 +296,37 @@ html.theme-dark.variant-7 .card-ui__text {
   color: #fff;
 }
 
-html.theme-dark.variant-7 .view-more.button .actual-text,
-html.theme-dark.variant-7 .view-more.button .hover-text {
+html.theme-dark.variant-7 .view-more.button .actual-text {
   color: #fff;
+}
+
+html.theme-dark.variant-7 .view-more.button .hover-text {
+  color: var(--color-accent);
+}
+
+html.theme-dark.variant-7 .view-more.button {
+  --animation-color: var(--color-accent);
+}
+
+/* Variante 7 Nachtmodus: erste drei Cards mit schwarzer Schrift */
+html.theme-dark.variant-7 .cards .card-parent:nth-child(1) .card-ui__title,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(1) .card-ui__text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(2) .card-ui__title,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(2) .card-ui__text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(3) .card-ui__title,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(3) .card-ui__text {
+  color: #000;
+}
+html.theme-dark.variant-7 .cards .card-parent:nth-child(1) .view-more.button .actual-text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(2) .view-more.button .actual-text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(3) .view-more.button .actual-text {
+  color: #000;
+}
+
+html.theme-dark.variant-7 .cards .card-parent:nth-child(1) .view-more.button .hover-text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(2) .view-more.button .hover-text,
+html.theme-dark.variant-7 .cards .card-parent:nth-child(3) .view-more.button .hover-text {
+  color: var(--color-accent);
 }
 
 html.theme-dark.variant-6 {
