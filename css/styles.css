@@ -239,6 +239,26 @@ html.theme-dark {
   /* Cards unverändert lassen – kein --color-card-surface Override */
 }
 
+/* Nachtmodus Variante 1: Cards in Primärfarbe (#343434) */
+html.theme-dark:not(.variant-2):not(.variant-3):not(.variant-4):not(.variant-5):not(.variant-6):not(.variant-7) .card-parent--primary,
+html.theme-dark:not(.variant-2):not(.variant-3):not(.variant-4):not(.variant-5):not(.variant-6):not(.variant-7) .card-parent--neutral {
+  --card-gradient: linear-gradient(135deg, #343434 0%, #4a4a4a 100%);
+  --card-dark: #1a1a1a;
+  --card-shadow: rgba(52, 52, 52, 0.3) 40px 50px 25px -40px, rgba(52, 52, 52, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(52, 52, 52, 0.4) 30px 50px 25px -40px, rgba(52, 52, 52, 0.25) 0px 25px 30px 0px;
+  --card-cta: #e8e8e8;
+  --card-circle: rgba(255, 255, 255, 0.15);
+}
+
+html.theme-dark:not(.variant-2):not(.variant-3):not(.variant-4):not(.variant-5):not(.variant-6):not(.variant-7) .card-parent--accent {
+  --card-gradient: linear-gradient(135deg, #343434 0%, #4a4a4a 100%);
+  --card-dark: #1a1a1a;
+  --card-shadow: rgba(52, 52, 52, 0.3) 40px 50px 25px -40px, rgba(52, 52, 52, 0.2) 0px 25px 25px -5px;
+  --card-shadow-hover: rgba(52, 52, 52, 0.4) 30px 50px 25px -40px, rgba(52, 52, 52, 0.25) 0px 25px 30px 0px;
+  --card-cta: var(--color-accent);
+  --card-circle: rgba(255, 255, 255, 0.15);
+}
+
 html.theme-dark.variant-2 {
   --color-background: #1e2526;
   --color-background-alt: #2a3234;
